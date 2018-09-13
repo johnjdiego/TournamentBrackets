@@ -29,6 +29,7 @@ TourBracks.prototype = {
 			
 			//Create next round matches
 			this.createMatches(newRound);
+			gs.addInfoMessage("Round closed and next round created");
 		}
     },
 	
@@ -105,13 +106,13 @@ TourBracks.prototype = {
         <sys_created_by>john.diego@snc</sys_created_by>
         <sys_created_on>2018-09-13 16:30:20</sys_created_on>
         <sys_id>6809bcd5dba86700565973568c961976</sys_id>
-        <sys_mod_count>19</sys_mod_count>
+        <sys_mod_count>20</sys_mod_count>
         <sys_name>TourBracks</sys_name>
         <sys_package display_value="Tournament Brackets" source="x_snc_tournament_b">c5f32e1cdbe8e300565973568c961998</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Tournament Brackets">c5f32e1cdbe8e300565973568c961998</sys_scope>
         <sys_update_name>sys_script_include_6809bcd5dba86700565973568c961976</sys_update_name>
         <sys_updated_by>john.diego@snc</sys_updated_by>
-        <sys_updated_on>2018-09-13 21:43:57</sys_updated_on>
+        <sys_updated_on>2018-09-13 22:20:21</sys_updated_on>
     </sys_script_include>
 </record_update>
