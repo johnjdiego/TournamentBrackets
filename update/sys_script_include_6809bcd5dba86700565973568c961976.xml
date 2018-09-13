@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_tournament_b.TourBracks</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>TourBracks</name>
+        <script><![CDATA[var TourBracks = Class.create();
+TourBracks.prototype = {
+	
+	round: '',
+	tournament: '',
+	rndNum: '',
+	
+    initialize: function() 
+	{
+		//hello world
+    },
+	
+	closeRound: function()
+    {
+		if(!this.validateMatches())
+			gs.addErrorMessage("Not all matches have a winner.");
+		else
+		{
+			//Create the new round
+			var newRound = this.createNewRnd();
+			
+			//Create next round matches
+			this.createMatches(newRound);
+		}
+    },
+	
+	validateMatches: function()
+	{
+		var matchesCompleted = false;
+		var gRndMatch = new GlideRecord('x_snc_tournament_b_matches');
+		gRndMatch.addQuery('round', this.round);
+		gRndMatch.addNullQuery('winner');
+		gRndMatch.query();
+		
+		if(!gRndMatch.next())
+			matchesCompleted = true;
+		
+		return matchesCompleted;
+	},
+	
+	createNewRnd: function()
+	{
+		var newRndNum = this.rndNum+1;
+		var gRnd = new GlideRecord('x_snc_tournament_b_rounds');
+        gRnd.initialize(); 
+	    gRnd.tournament = this.tournament; 
+		gRnd.round_number = newRndNum; 
+		gRnd.round = "Round " + newRndNum;
+		gRnd.active = "true";
+		gRnd.insert();
+			
+		return gRnd.sys_id;
+	},
+	
+	createMatches: function(newRound)
+	{
+		var grWinners = new GlideRecord('x_snc_tournament_b_matches');
+		grWinners.addQuery('round', this.round);
+		grWinners.query();
+		
+		var counter = 1;
+		var matchSysId;
+		
+		while(grWinners.next())
+		{
+			if (counter % 2 == 0)
+			{
+				var grMatUp = new GlideRecord('x_snc_tournament_b_matches');
+				grMatUp.get(matchSysId);
+				grMatUp.team_2 = grWinners.winner;
+				grMatUp.update();
+			}
+			else
+			{
+				matchSysId = this.createNewMatch(newRound, grWinners.winner, '');
+			}
+			counter++;
+		}
+	},
+	
+	createNewMatch: function(round, team1, team2)
+	{
+		var gMatch = new GlideRecord('x_snc_tournament_b_matches');
+        gMatch.initialize(); 
+	    gMatch.tournament = this.tournament; 
+		gMatch.round = round;
+		gMatch.team_1 = team1;
+		gMatch.team_2 = team2;
+		gMatch.insert();
+			
+		return gMatch.sys_id;
+	},
+
+    type: 'TourBracks'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>john.diego@snc</sys_created_by>
+        <sys_created_on>2018-09-13 16:30:20</sys_created_on>
+        <sys_id>6809bcd5dba86700565973568c961976</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>TourBracks</sys_name>
+        <sys_package display_value="Tournament Brackets" source="x_snc_tournament_b">c5f32e1cdbe8e300565973568c961998</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Tournament Brackets">c5f32e1cdbe8e300565973568c961998</sys_scope>
+        <sys_update_name>sys_script_include_6809bcd5dba86700565973568c961976</sys_update_name>
+        <sys_updated_by>john.diego@snc</sys_updated_by>
+        <sys_updated_on>2018-09-13 21:43:57</sys_updated_on>
+    </sys_script_include>
+</record_update>

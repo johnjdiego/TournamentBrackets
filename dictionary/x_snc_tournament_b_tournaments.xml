@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Tournaments" max_length="40" name="x_snc_tournament_b_tournaments" type="collection">
+        <element label="End" max_length="40" name="end" type="glide_date"/>
+        <element label="Name" max_length="100" name="name" type="string"/>
+        <element choice="1" label="Sport" max_length="40" name="sport" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Ping Pong" value="ping_pong"/>
+                <element inactive_on_update="false" label="Pool" value="pool"/>
+            </choice>
+        </element>
+        <element label="Start" max_length="40" name="start" type="glide_date"/>
+    </element>
+</database>

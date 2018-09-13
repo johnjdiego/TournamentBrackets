@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Matches" max_length="40" name="x_snc_tournament_b_matches" type="collection">
+        <element label="Round" max_length="32" name="round" reference="x_snc_tournament_b_rounds" type="reference"/>
+        <element label="Team 1" max_length="32" name="team_1" reference="x_snc_tournament_b_teams" type="reference"/>
+        <element label="Team 2" max_length="32" name="team_2" reference="x_snc_tournament_b_teams" type="reference"/>
+        <element label="Winner" max_length="32" name="winner" reference="x_snc_tournament_b_teams" type="reference"/>
+        <index name="index">
+            <element name="team_1"/>
+        </index>
+        <index name="index2">
+            <element name="winner"/>
+        </index>
+        <index name="index3">
+            <element name="round"/>
+        </index>
+        <index name="index4">
+            <element name="team_2"/>
+        </index>
+    </element>
+</database>

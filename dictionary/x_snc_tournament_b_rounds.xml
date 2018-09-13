@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Rounds" max_length="40" name="x_snc_tournament_b_rounds" type="collection">
+        <element label="Active" max_length="40" name="active" type="boolean"/>
+        <element display="true" label="Round" max_length="100" name="round" type="string"/>
+        <element label="Round Number" max_length="40" name="round_number" type="integer"/>
+        <element label="Tournament" max_length="32" name="tournament" reference="x_snc_tournament_b_tournaments" type="reference"/>
+        <index name="index">
+            <element name="tournament"/>
+        </index>
+    </element>
+</database>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="team_2" label="Team 2" language="en" table="x_snc_tournament_b_matches">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>team_2</element>
+            <help/>
+            <hint/>
+            <label>Team 2</label>
+            <language>en</language>
+            <name>x_snc_tournament_b_matches</name>
+            <plural>Team 2s</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>john.diego@snc</sys_created_by>
+            <sys_created_on>2018-09-10 22:51:33</sys_created_on>
+            <sys_id>f6c33e1cdb2ce300565973568c961946</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Team 2</sys_name>
+            <sys_package display_value="Tournament Brackets" source="x_snc_tournament_b">c5f32e1cdbe8e300565973568c961998</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Tournament Brackets">c5f32e1cdbe8e300565973568c961998</sys_scope>
+            <sys_update_name>sys_documentation_x_snc_tournament_b_matches_team_2_en</sys_update_name>
+            <sys_updated_by>john.diego@snc</sys_updated_by>
+            <sys_updated_on>2018-09-10 22:51:33</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
